@@ -23,7 +23,7 @@ npx expo install react-native-screens react-native-safe-area-context react-nativ
   * `git pull origin <nome_branch>` - pegar conteúdo de uma branch
   * `git push origin <nome_branch>` - colocar conteúdo em uma branch
 
-* **Ocupações**
+### Ocupações
   > [^1]: Back-end
   > [^2]: Front-end
   > [^3]: Design
