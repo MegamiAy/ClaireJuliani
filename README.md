@@ -12,3 +12,9 @@ npx expo install react-native-screens react-native-safe-area-context react-nativ
   > * *João:* joao
   > * *Rogério:* japa
   > * *Redivo:* neko
+
+* **Comandos**
+  > git checkout -b <nome_branch> = criar uma branch
+  > git checkout <nome_branch> = entrar em uma branch
+  > git pull origin <nome_branch> = pegar conteudo de uma branch
+  > git push origin <nome_branch> = colocar conteudo em uma branch
