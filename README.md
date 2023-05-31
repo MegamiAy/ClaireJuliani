@@ -11,14 +11,20 @@ npx expo install react-native-screens react-native-safe-area-context react-nativ
   > * yarn start ou npm start
 
 * **Use sua branch**
-  > * *Laiz:* laiz
-  > * *Isabella:* isa
-  > * *João:* joao
-  > * *Rogério:* japa
-  > * *Redivo:* neko
+  > * *Laiz:* `laiz` - [^1] <sup>and</sup> [^4]
+  > * *Isabella:* `isa` - [^1] <sup>and</sup> [^4]
+  > * *João:* `joao` - [^2] <sup>and</sup> [^3]
+  > * *Rogério:* `japa` - [^2] <sup>and</sup> [^3]
+  > * *Redivo:* `neko` - [^1] <sup>and</sup> [^4]
 
 * **Comandos**
   > * git checkout -b <nome_branch> = criar uma branch
   > * git checkout <nome_branch> = entrar em uma branch
-  > * git pull origin <nome_branch> = pegar conteudo de uma branch
-  > * git push origin <nome_branch> = colocar conteudo em uma branch
+  > * git pull origin <nome_branch> = pegar conteúdo de uma branch
+  > * git push origin <nome_branch> = colocar conteúdo em uma branch
+
+* **Organização**
+  > [^1]: Back-end
+  > [^2]: Front-end
+  > [^3]: Design
+  > [^4]: Database
