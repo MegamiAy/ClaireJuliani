@@ -17,7 +17,7 @@ npx expo install react-native-screens react-native-safe-area-context react-nativ
   > * **Rogério:** `japa` - [^2] <sup>and</sup> [^3]
   > * **Redivo:** `neko` - [^1] <sup>and</sup> [^4]
 
-* **Comandos para branchs**
+* **Comandos para manter ordem**
   * `git checkout -b <nome_branch>` - criar uma branch
   * `git checkout <nome_branch>` - entrar em uma branch
   * `git pull origin <nome_branch>` - pegar conteúdo de uma branch
