@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { useState } from "react";
-import { View } from "react-native";
-import { Button, Paragraph, TextInput } from "react-native-paper";
+import { View, StyleSheet, TextInput } from "react-native";
+import { Button, Paragraph } from "react-native-paper";
 import Header from "../bases/Header";
 import Footer from "../bases/Footer";
 import { auth } from "../config/firebase";
@@ -11,7 +11,7 @@ export default function Register({ navigation }) {
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
   const [conf, setConf] = useState("");
-   
+
   const handleRegister = () => {
     createUserWithEmailAndPassword(auth, email, pass, conf)
       .then((userCredential) => {
@@ -33,15 +33,23 @@ export default function Register({ navigation }) {
   };
 
   return (
-    <View>
-      <Header title="Registro de Usuário" />
-      <Paragraph>Faça seu cadastro: </Paragraph>
+    <View style={styles.container}>
+      <Header/>
+      <Paragraph style={styles.title}>Faça seu cadastro: </Paragraph>
       <TextInput
         label={"E-mail"}
         placeholder="Digite seu E-mail"
         value={email}
         onChangeText={setEmail}
         mode="outlined"
+        style={{
+          ...styles.inputStyle,
+          borderTopStyle: "none",
+          borderLeftStyle: "none",
+          borderRightStyle: "none",
+          borderBottomWidth: 3,
+          outlineStyle: "none",
+        }}
       />
       <TextInput
         label={"Nome de Usuário"}
@@ -49,6 +57,14 @@ export default function Register({ navigation }) {
         value={user}
         onChangeText={setUser}
         mode="outlined"
+        style={{
+          ...styles.inputStyle,
+          borderTopStyle: "none",
+          borderLeftStyle: "none",
+          borderRightStyle: "none",
+          borderBottomWidth: 3,
+          outlineStyle: "none",
+        }}
       />
       <TextInput
         label={"Senha"}
@@ -56,17 +72,73 @@ export default function Register({ navigation }) {
         value={pass}
         onChangeText={setPass}
         mode="outlined"
+        style={{
+          ...styles.inputStyle,
+          borderTopStyle: "none",
+          borderLeftStyle: "none",
+          borderRightStyle: "none",
+          borderBottomWidth: 3,
+          outlineStyle: "none",
+        }}
       />
       <TextInput
         label={"Confirme a senha"}
         placeholder="Digite a Senha"
         value={conf}
         onChangeText={setConf}
+        mode="outlined"
+        style={{
+          ...styles.inputStyle,
+          borderTopStyle: "none",
+          borderLeftStyle: "none",
+          borderRightStyle: "none",
+          borderBottomWidth: 3,
+          outlineStyle: "none",
+        }}
       />
-      <Button mode="contained" onPress={handleRegister}>
-        Salvar
+      <Button style={styles.Button} mode="contained" onPress={handleRegister}>
+        Casdastro
       </Button>
       <Footer />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  title: {
+    color: "#000",
+    fontSize: 25,
+    fontWeight: "bold",
+    marginBottom: 20,
+    fontWeight: "bold", 
+  },
+
+  inputStyle: {
+    color: "#000",
+    backgroundColor: "#fff",
+    height: 40,
+    width: "80%",
+    margin: 8,
+    borderWidth: 1,
+    padding: 15,
+    padding: 5,
+    borderRadius: 0,
+    outlineColor: "#000",
+    outlineStyle: "solid",
+    outlineWidth: 1,
+  },
+
+  Button: {
+    backgroundColor: "#000",
+    marginTop: 20,
+    width: "40%",
+    borderRadius: 0,
+  },
+});
