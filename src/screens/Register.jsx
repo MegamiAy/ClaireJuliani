@@ -11,7 +11,7 @@ export default function Register({ navigation }) {
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
   const [conf, setConf] = useState("");
-
+   
   const handleRegister = () => {
     createUserWithEmailAndPassword(auth, email, pass, conf)
       .then((userCredential) => {
