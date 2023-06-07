@@ -1,17 +1,39 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { View } from "react-native";
-import { Button, TextInput, Paragraph } from "react-native-paper";
-import { auth } from "../firebase";
+import {
+  Button,
+  TextInput,
+  Paragraph,
+  // Alert,
+  Checkbox,
+} from "react-native-paper";
+import { auth } from "../config/firebase";
 import { useState } from "react";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [checked, setChecked] = useState(false);
 
-  function Login() {
+  // const ReminderInformation = () => {
+  //   if (lembrete.trim() !== "") {
+  //     // Aqui você pode adicionar a lógica para salvar o lembrete em algum lugar
+  //     Alert.alert("Lembrete salvo com sucesso!");
+  //     setLembrete("");
+  //   } else {
+  //     Alert.alert("Informações de Login não salvas!");
+  //   }
+  // };
+
+  function handleLogin() {
     signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
         console.log("Usuário logado com sucesso!");
+
+        if (checked) {
+          console.log("O usuário quer salvar os dados para o futuro");
+        }
+
         navigation.navigate("Home");
       })
       .catch((error) => {
@@ -33,7 +55,7 @@ export default function Login({ navigation }) {
           console.log("E-mail inválido!");
           return;
         }
-    });
+      });
   }
 
   return (
@@ -42,19 +64,27 @@ export default function Login({ navigation }) {
       <TextInput
         label={"E-mail"}
         placeholder="Digite seu E-mail"
-        value={email}
+        // ERRO NO VALUE ARRUMAR NA PROXIMA AULA
         onchangeText={setEmail}
-        mode="outlined"
+        // // mode="outlined"
       />
       <TextInput
         label={"Senha"}
         placeholder="Digite seu Senha"
-        value={senha}
-        onchangeText={setPass}
-        mode="outlined"
+        value={pass}
+        // onchangeText={setPass}
+        // mode="outlined"
       />
-        {/* estou fazendo o lembrete NÃO MEXER EM NADAAAAAAAAAAAQ FDP" */}
-      <Button mode="contained" onProgress={Login} />
+      {/* <Checkbox
+        status={checked ? "checked" : "unchecked"}
+        onPress={() => {
+          setChecked(!checked);
+        }}
+      /> */}
+      {/* estou fazendo o lembrete NÃO MEXER EM NADAAAAAAAAAAAQ FDP" */}
+      <Button mode="contained" onProgress={handleLogin} >
+        Entrar
+      </Button>
     </View>
   );
 }
