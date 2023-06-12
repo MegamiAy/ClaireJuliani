@@ -1,7 +1,20 @@
-import Register from "./src/screens/Register";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import RootNavigation from './src/screens/Register.jsx';
+import { DefaultTheme, Provider as NativeProvider } from "react-native-paper";
 
 export default function App() {
   return (
-    <Register/>
-  )
+  <NativeProvider>
+    <RootNavigation />
+  </NativeProvider>);
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
