@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <NativeProvider theme={theme}>
-      <RootNavigation />
+      <RootNavigation />""
     </NativeProvider>
   );
 }
