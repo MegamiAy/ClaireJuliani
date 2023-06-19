@@ -3,7 +3,7 @@ import { Button, Text, TextInput } from "react-native-paper";
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { useState } from "react";
 import db from "../config/firebase";
-import auth from "../config/firebase";
+import { setStatusBarStyle } from "expo-status-bar";
                                                 
 
 
@@ -12,15 +12,21 @@ import auth from "../config/firebase";
 export default function RecPass() {
     const [email, setEmail] = useState('');
     const [alerta, setAlerta] = useState('');
+    const auth = getAuth();
 
-    sendPasswordResetEmail(auth, email)
-    .then (() => {
-        setAlerta('Email enviado com sucesso!')
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    })
+    const resetUserPassword = async () => {
+        try{
+            await sendPasswordResetEmail(auth, email);
+            alert("Email enviado com sucesso!")
+        } catch(error){
+            if (error.code === 'auth/user-not-found'){
+                alert("Email não encontrado!")
+            } else {
+                alert("Erro ao enviar email!")
+            }
+            
+        }
+    }
     return(
         <View>
             <Text>Esqueci minha senha</Text>
@@ -29,7 +35,7 @@ export default function RecPass() {
                 value={email}
                 onChangeText={text => setEmail(text)}
             />
-            <Button onPress={() => sendPasswordResetEmail(email)}>Enviar</Button>
+            <Button onPress={() => resetUserPassword()}>Enviar</Button>
             <Text>{alerta}</Text>
         </View>
     )
