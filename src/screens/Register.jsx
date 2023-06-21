@@ -34,7 +34,7 @@ export default function Register({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Header/>
+      {/* <Header/> */}
       <Paragraph style={styles.title}>Faça seu cadastro: </Paragraph>
       <TextInput
         label={"E-mail"}
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     marginBottom: 20,
-    fontWeight: "bold", 
+    fontWeight: "bold",
   },
 
   inputStyle: {
@@ -140,5 +140,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: "40%",
     borderRadius: 0,
+    color: "#7fffd4",
   },
 });
