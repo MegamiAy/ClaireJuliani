@@ -1,19 +1,19 @@
+// firebase
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { View } from "react-native";
-import {
-  Button,
-  TextInput,
-  Paragraph,
-  // Alert,
-  Checkbox,
+import {Button, TextInput, Paragraph, // Alert, // Checkbox,
 } from "react-native-paper";
+
+// firebase
 import { auth } from "../config/firebase";
 import { useState } from "react";
+import Header from "../bases/Header";
+import Footer from "../bases/Footer";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   // const ReminderInformation = () => {
   //   if (lembrete.trim() !== "") {
@@ -30,13 +30,14 @@ export default function Login({ navigation }) {
       .then((userCredential) => {
         console.log("Usuário logado com sucesso!");
 
-        if (checked) {
-          console.log("O usuário quer salvar os dados para o futuro");
-        }
+        // if (checked) {
+        //   console.log("O usuário quer salvar os dados para o futuro");
+        // }
 
         navigation.navigate("Home");
       })
       .catch((error) => {
+        // se tiver erro aqui é problema no firebase
         console.log("Falha ao logar usuário: " + error);
         const errorCode = error.code;
         if (email === "" || senha === "") {
@@ -60,20 +61,22 @@ export default function Login({ navigation }) {
 
   return (
     <View>
+      <Header/>
       <Paragraph>Faça seu login </Paragraph>
       <TextInput
         label={"E-mail"}
         placeholder="Digite seu E-mail"
-        // ERRO NO VALUE ARRUMAR NA PROXIMA AULA
-        onchangeText={setEmail}
-        // // mode="outlined"
+        value={email}
+        onChangeText={setEmail}
+        mode="outlined"
+        disabled={false}
       />
       <TextInput
         label={"Senha"}
         placeholder="Digite seu Senha"
         value={pass}
-        // onchangeText={setPass}
-        // mode="outlined"
+        onChangeText={setPass}
+        mode="outlined"
       />
       {/* <Checkbox
         status={checked ? "checked" : "unchecked"}
@@ -82,9 +85,10 @@ export default function Login({ navigation }) {
         }}
       /> */}
       {/* estou fazendo o lembrete NÃO MEXER EM NADAAAAAAAAAAAQ FDP" */}
-      <Button mode="contained" onProgress={handleLogin} >
+      <Button mode="contained"  onPress={handleLogin}>
         Entrar
       </Button>
+      <Footer/>
     </View>
   );
 }
