@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { View } from "react-native";
 import {Button, TextInput, Paragraph, // Alert, // Checkbox,
 } from "react-native-paper";
-
+ 
 // firebase
 import { auth } from "../config/firebase";
 import { useState } from "react";
