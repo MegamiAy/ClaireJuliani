@@ -16,11 +16,12 @@ e
 
 * **Use sua branch**
   > * **Laiz:** `laiz` - [^1] <sup>and</sup> [^4]
-  > * **Isabella:** `isa` - [^1] <sup>and</sup> [^4]
   > * **João:** `joao` - [^2] <sup>and</sup> [^3]
   > * **Rogério:** `japa` - [^2] <sup>and</sup> [^3]
   > * **Redivo:** `neko` - [^1] <sup>and</sup> [^4]
-
+  > * **Ana:** `anab` - [^2]
+  > * **João:** `gabi` - [^1] <sup>and</sup> [^2]
+   
 * **Comandos para manter ordem**
   * `git checkout -b <nome_branch>` - criar uma branch
   * `git checkout <nome_branch>` - entrar em uma branch
