@@ -9,7 +9,8 @@ npx expo install react-native-screens react-native-safe-area-context react-nativ
 ```
 e
 
-```  npm install @firebase/auth ```
+``` npm install @firebase/auth ```
+``` npx expo install expo-image-picker ```
 
 * **Para iniciar**
   * `yarn start ou npm start`
