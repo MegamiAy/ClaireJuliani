@@ -5,13 +5,14 @@ import { Button, Paragraph, TextInput } from "react-native-paper";
 import Header from "../bases/Header";
 import Footer from "../bases/Footer";
 import { auth } from "../config/firebase";
+import styles from "../utils/styles";
 
 export default function Register({ navigation }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [user, setUser] = useState("");
   const [conf, setConf] = useState("");
-   
+
   const handleRegister = () => {
     createUserWithEmailAndPassword(auth, email, pass, conf)
       .then((userCredential) => {
@@ -33,7 +34,7 @@ export default function Register({ navigation }) {
   };
 
   return (
-    <View>
+    <View style={styles.BodyH}>
       <Header title="Registro de Usuário" />
       <Paragraph>Faça seu cadastro: </Paragraph>
       <TextInput
@@ -41,30 +42,36 @@ export default function Register({ navigation }) {
         placeholder="Digite seu E-mail"
         value={email}
         onChangeText={setEmail}
-        mode="outlined"
+        // mode="outlined"
+        style={styles.InputL}
       />
       <TextInput
         label={"Nome de Usuário"}
         placeholder="Digite o nome de usuário"
         value={user}
         onChangeText={setUser}
-        mode="outlined"
+        // mode="outlined"
+        style={styles.InputL}
       />
       <TextInput
         label={"Senha"}
         placeholder="Digite sua Senha"
         value={pass}
         onChangeText={setPass}
-        mode="outlined"
+        // mode="outlined"
+        style={styles.InputL}
       />
       <TextInput
         label={"Confirme a senha"}
         placeholder="Digite a Senha"
         value={conf}
         onChangeText={setConf}
+        style={styles.InputL}
       />
-      <Button mode="contained" onPress={handleRegister}>
-        Salvar
+      <Button
+        style={styles.ButtonC}
+        onPress={handleRegister}>
+        Cadastrar
       </Button>
       <Footer />
     </View>

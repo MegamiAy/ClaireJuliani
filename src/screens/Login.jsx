@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { auth } from "../config/firebase";
 import styles from "../utils/styles";
 
-export default function LoginScreen({navigation}){
+export default function Login({navigation}){
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
@@ -19,8 +19,6 @@ export default function LoginScreen({navigation}){
                 console.log("Usuário não logado")
             }
         })
-
-
     }, [])
 
     function handleLogin() {
@@ -44,17 +42,17 @@ export default function LoginScreen({navigation}){
                 onChangeText={setEmail}
                 style={styles.InputL}
                 />  
-                <TouchableOpacity onPress={() => navigation.navigate("Cadastro")} style={styles.Touch}>
-                    <Text>Cadastre-se</Text>
-                </TouchableOpacity>
                 <TextInput
                 placeholder="Senha..."
                 value={senha}
                 onChangeText={setSenha}
                 style={styles.InputL}
                 />
-                <TouchableOpacity onPress={() => navigation.navigate("Cadastro")} style={styles.Touch}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Recuperar")} style={styles.Touch}>
                     <Text>Esqueceu a senha?</Text>
+                </TouchableOpacity> */}
+                <TouchableOpacity onPress={() => navigation.navigate("Registro")} style={styles.Touch}>
+                    <Text>Cadastre-se</Text>
                 </TouchableOpacity>
                 <Button
                 onPress={handleLogin}

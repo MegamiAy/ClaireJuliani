@@ -1,3 +1,5 @@
+// Boa sorte Jão's e Japa
+
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
