@@ -1,7 +1,7 @@
-import Register from "./src/screens/Register";
+import RootNavigation from "./src";
 
 export default function App() {
   return (
-    <Register/>
-  )
+    <RootNavigation />
+  );
 }
