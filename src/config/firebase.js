@@ -3,14 +3,22 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCMFtnVd49kiuC66WWfDQcgP_G9wtz2imU",
-  authDomain: "claire-1bba9.firebaseapp.com",
-  projectId: "claire-1bba9",
-  storageBucket: "claire-1bba9.appspot.com",
-  messagingSenderId: "174879856976",
-  appId: "1:174879856976:web:c828aa38b27335323f7455",
-  measurementId: "G-E0W1M6ZM0G"
+
+  apiKey: "AIzaSyChMOP2nhKhy-WBg-8KFhutBT67F45FAfc",
+
+  authDomain: "claire-61fa2.firebaseapp.com",
+
+  projectId: "claire-61fa2",
+
+  storageBucket: "claire-61fa2.appspot.com",
+
+  messagingSenderId: "55752456465",
+
+  appId: "1:55752456465:web:022b339d7b1fce0211b4b0"
+
 };
+
+
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

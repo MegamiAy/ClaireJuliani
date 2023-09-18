@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import RecPass from "./screens/RecPass";
+import HomeScr from "./screens/Home";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ export default function RootNavigation(){
                     name="RecPass"
                     component={RecPass}
                     options={{
-                        title: "Recuperar Senha",
+                        title: "Recuperar senha",
                     }}
                 />
             </Stack.Navigator>
