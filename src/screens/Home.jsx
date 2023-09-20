@@ -4,10 +4,11 @@ import Header from '../bases/Header';
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
-export default function App({ navigation }) {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
         <Header title="Home Screen"/>  
+        <Text>bom dia </Text>
     </View>
   );
 }
