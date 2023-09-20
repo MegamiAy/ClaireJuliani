@@ -1,11 +1,9 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { useState } from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { View, TextInput } from "react-native";
 import { Button, Paragraph } from "react-native-paper";
-import Header from "../bases/Header";
-import Footer from "../bases/Footer";
-import { auth } from "../config/firebase";
 import styles from "../utils/styles";
+import { auth } from "../config/firebase";
 
 export default function Register({ navigation }) {
   const [email, setEmail] = useState("");
@@ -35,7 +33,6 @@ export default function Register({ navigation }) {
 
   return (
     <View style={styles.BodyH}>
-      <Header title="Registro de Usuário" />
       <Paragraph>Faça seu cadastro: </Paragraph>
       <TextInput
         label={"E-mail"}
@@ -73,47 +70,7 @@ export default function Register({ navigation }) {
         onPress={handleRegister}>
         Cadastrar
       </Button>
-      <Footer />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  title: {
-    color: "#000",
-    fontSize: 25,
-    fontWeight: "bold",
-    marginBottom: 20,
-    fontWeight: "bold",
-  },
-
-  inputStyle: {
-    color: "#000",
-    backgroundColor: "#fff",
-    height: 40,
-    width: "80%",
-    margin: 8,
-    borderWidth: 1,
-    padding: 15,
-    padding: 5,
-    borderRadius: 0,
-    outlineColor: "#000",
-    outlineStyle: "solid",
-    outlineWidth: 1,
-  },
-
-  Button: {
-    backgroundColor: "#000",
-    marginTop: 20,
-    width: "40%",
-    borderRadius: 0,
-    color: "#7fffd4",
-  },
-});
