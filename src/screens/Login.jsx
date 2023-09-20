@@ -1,90 +1,65 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { View } from "react-native";
-import {
-  Button,
-  TextInput,
-  Paragraph,
-  // Alert,
-  Checkbox,
-} from "react-native-paper";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { View, Text, TouchableOpacity,  } from "react-native";
+import { TextInput, Button } from "react-native-paper";
+import { useEffect, useState } from "react";
 import { auth } from "../config/firebase";
-import { useState } from "react";
+import styles from "../utils/styles";
 
-export default function Login({ navigation }) {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [checked, setChecked] = useState(false);
+export default function Login({navigation}){
 
-  // const ReminderInformation = () => {
-  //   if (lembrete.trim() !== "") {
-  //     // Aqui você pode adicionar a lógica para salvar o lembrete em algum lugar
-  //     Alert.alert("Lembrete salvo com sucesso!");
-  //     setLembrete("");
-  //   } else {
-  //     Alert.alert("Informações de Login não salvas!");
-  //   }
-  // };
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
 
-  function handleLogin() {
-    signInWithEmailAndPassword(auth, email, pass)
-      .then((userCredential) => {
-        console.log("Usuário logado com sucesso!");
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Usuário UID: ", user.uid)
+                navigation.navigate('Home')
+            } else {
+                console.log("Usuário não logado")
+            }
+        })
+    }, [])
 
-        if (checked) {
-          console.log("O usuário quer salvar os dados para o futuro");
-        }
+    function handleLogin() {
+        signInWithEmailAndPassword(auth, email, senha)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                navigation.navigate('Home')
+                console.log(user)
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    }
 
-        navigation.navigate("Home");
-      })
-      .catch((error) => {
-        console.log("Falha ao logar usuário: " + error);
-        const errorCode = error.code;
-        if (email === "" || senha === "") {
-          console.log("Preencha todos os campos!");
-          return;
-        } else if (errorCode === "auth/invalid-email") {
-          console.log("Email inválido!");
-          return;
-        } else if (!email.includes("@")) {
-          console.log("E-mail inválido!");
-          return;
-        } else if (!email.includes(" ")) {
-          console.log("E-mail inválido!");
-          return;
-        } else if (!email.includes(".")) {
-          console.log("E-mail inválido!");
-          return;
-        }
-      });
-  }
-
-  return (
-    <View>
-      <Paragraph>Faça seu login </Paragraph>
-      <TextInput
-        label={"E-mail"}
-        placeholder="Digite seu E-mail"
-        // ERRO NO VALUE ARRUMAR NA PROXIMA AULA
-        onchangeText={setEmail}
-        // // mode="outlined"
-      />
-      <TextInput
-        label={"Senha"}
-        placeholder="Digite seu Senha"
-        value={pass}
-        // onchangeText={setPass}
-        // mode="outlined"
-      />
-      {/* <Checkbox
-        status={checked ? "checked" : "unchecked"}
-        onPress={() => {
-          setChecked(!checked);
-        }}
-      /> */}
-      {/* estou fazendo o lembrete NÃO MEXER EM NADAAAAAAAAAAAQ FDP" */}
-      <Button mode="contained" onProgress={handleLogin} >
-        Entrar
-      </Button>
-    </View>
-  );
+    return (
+        <View>
+            <View style={styles.BodyL}>
+                <TextInput
+                placeholder="Email..."
+                value={email}
+                onChangeText={setEmail}
+                style={styles.InputL}
+                />  
+                <TextInput
+                placeholder="Senha..."
+                value={senha}
+                onChangeText={setSenha}
+                style={styles.InputL}
+                />
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Recuperar")} style={styles.Touch}>
+                    <Text>Esqueceu a senha?</Text>
+                </TouchableOpacity> */}
+                <TouchableOpacity onPress={() => navigation.navigate("Registro")} style={styles.Touch}>
+                    <Text>Cadastre-se</Text>
+                </TouchableOpacity>
+                <Button
+                onPress={handleLogin}
+                mode="contained"
+                style={styles.ButtonL}
+                >Logar</Button>
+            </View>    
+        </View>
+    );
 }

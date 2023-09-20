@@ -1,19 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import RootNavigation from './src/screens/Home.jsx';
-import { DefaultTheme, Provider as NativeProvider } from "react-native-paper";
+import RootNavigation from "./src";
 
 export default function App() {
   return (
     <RootNavigation />
-    );
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
