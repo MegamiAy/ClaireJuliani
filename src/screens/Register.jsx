@@ -5,6 +5,7 @@ import { Button, Paragraph } from "react-native-paper";
 import Header from "../bases/Header";
 import Footer from "../bases/Footer";
 import { auth } from "../config/firebase";
+import styles from "../utils/styles";
 
 export default function Register({ navigation }) {
   const [email, setEmail] = useState("");
@@ -33,71 +34,44 @@ export default function Register({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      {/* <Header/> */}
-      <Paragraph style={styles.title}>Faça seu cadastro: </Paragraph>
+    <View style={styles.BodyH}>
+      <Header title="Registro de Usuário" />
+      <Paragraph>Faça seu cadastro: </Paragraph>
       <TextInput
         label={"E-mail"}
         placeholder="Digite seu E-mail"
         value={email}
         onChangeText={setEmail}
-        mode="outlined"
-        style={{
-          ...styles.inputStyle,
-          borderTopStyle: "none",
-          borderLeftStyle: "none",
-          borderRightStyle: "none",
-          borderBottomWidth: 3,
-          outlineStyle: "none",
-        }}
+        // mode="outlined"
+        style={styles.InputL}
       />
       <TextInput
         label={"Nome de Usuário"}
         placeholder="Digite o nome de usuário"
         value={user}
         onChangeText={setUser}
-        mode="outlined"
-        style={{
-          ...styles.inputStyle,
-          borderTopStyle: "none",
-          borderLeftStyle: "none",
-          borderRightStyle: "none",
-          borderBottomWidth: 3,
-          outlineStyle: "none",
-        }}
+        // mode="outlined"
+        style={styles.InputL}
       />
       <TextInput
         label={"Senha"}
         placeholder="Digite sua Senha"
         value={pass}
         onChangeText={setPass}
-        mode="outlined"
-        style={{
-          ...styles.inputStyle,
-          borderTopStyle: "none",
-          borderLeftStyle: "none",
-          borderRightStyle: "none",
-          borderBottomWidth: 3,
-          outlineStyle: "none",
-        }}
+        // mode="outlined"
+        style={styles.InputL}
       />
       <TextInput
         label={"Confirme a senha"}
         placeholder="Digite a Senha"
         value={conf}
         onChangeText={setConf}
-        mode="outlined"
-        style={{
-          ...styles.inputStyle,
-          borderTopStyle: "none",
-          borderLeftStyle: "none",
-          borderRightStyle: "none",
-          borderBottomWidth: 3,
-          outlineStyle: "none",
-        }}
+        style={styles.InputL}
       />
-      <Button style={styles.Button} mode="contained" onPress={handleRegister}>
-        Casdastro
+      <Button
+        style={styles.ButtonC}
+        onPress={handleRegister}>
+        Cadastrar
       </Button>
       <Footer />
     </View>
