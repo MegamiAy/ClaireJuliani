@@ -1,11 +1,9 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { useState } from "react";
-import { View } from "react-native";
-import { Button, Paragraph, TextInput } from "react-native-paper";
-import Header from "../bases/Header";
-import Footer from "../bases/Footer";
-import { auth } from "../config/firebase";
+import { View, TextInput } from "react-native";
+import { Button, Paragraph } from "react-native-paper";
 import styles from "../utils/styles";
+import { auth } from "../config/firebase";
 
 export default function Register({ navigation }) {
   const [email, setEmail] = useState("");
@@ -35,7 +33,6 @@ export default function Register({ navigation }) {
 
   return (
     <View style={styles.BodyH}>
-      <Header title="Registro de Usuário" />
       <Paragraph>Faça seu cadastro: </Paragraph>
       <TextInput
         label={"E-mail"}
@@ -73,7 +70,7 @@ export default function Register({ navigation }) {
         onPress={handleRegister}>
         Cadastrar
       </Button>
-      <Footer />
     </View>
   );
 }
+
