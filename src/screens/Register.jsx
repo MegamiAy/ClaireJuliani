@@ -57,6 +57,7 @@ export default function Register({ navigation }) {
         onChangeText={setPass}
         // mode="outlined"
         style={styles.InputL}
+        secureTextEntry={true}
       />
       <TextInput
         label={"Confirme a senha"}
@@ -64,6 +65,7 @@ export default function Register({ navigation }) {
         value={conf}
         onChangeText={setConf}
         style={styles.InputL}
+        secureTextEntry={true}
       />
       <Button
         style={styles.ButtonC}

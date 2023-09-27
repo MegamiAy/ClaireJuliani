@@ -47,6 +47,7 @@ export default function Login({navigation}){
                 value={senha}
                 onChangeText={setSenha}
                 style={styles.InputL}
+                secureTextEntry={true}
                 />
                 {/* <TouchableOpacity onPress={() => navigation.navigate("Recuperar")} style={styles.Touch}>
                     <Text>Esqueceu a senha?</Text>
